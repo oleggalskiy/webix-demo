@@ -14,16 +14,45 @@ function buildRoute(view) {
     }
 }
 
-require(['views/main', 'views/cars'], function(main, cars) {
+function buildBtn(label, route) {
+    return {
+        align: 'center',
+        click: function () {
+                routie(route)
+        },
+        value: label,
+        view: 'button',
+        width: 100
+    };
+}
+
+require(
+    ['views/main', 'views/cars', 'views/marks', 'util/resourceProxy']
+    , function(main, cars, marks, resourceProxy) {
     webix.ready(function() {
         webix.ui({
-            id: 'root',
-            container: "app"
+            container: "app",
+            width: document.body.clientWidth,
+            height: document.body.clientHeight,
+            rows: [
+                {
+                    view: 'toolbar',
+                    cols: [
+                        buildBtn('Home', ''),
+                        buildBtn('Marks', 'marks'),
+                    ]
+                },
+                {
+                id: 'root'
+                }
+            ]
+
         })
     })
 
     routie({
         '': buildRoute(main),
-        'cars': buildRoute(cars)
+        'cars': buildRoute(cars),
+        'marks': buildRoute(marks)
     })
 })

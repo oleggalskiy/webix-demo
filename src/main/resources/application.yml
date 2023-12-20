@@ -1,0 +1,9 @@
+server:
+  port: 9090
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/logistic
+    username: postgres
+    password: changeme
+  jpa:
+    generate-ddl: true
