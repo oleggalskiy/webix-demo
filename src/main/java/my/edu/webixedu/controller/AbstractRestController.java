@@ -16,8 +16,8 @@ public abstract class AbstractRestController<T, R extends JpaRepository<T, ?>> {
     }
     
     @GetMapping
-    public Page<T> list(@PageableDefault Pageable pegeable) {
-        return repo.findAll(pegeable);
+    public Page<T> list(@PageableDefault Pageable pageable) {
+        return repo.findAll(pageable);
     }
 
     @GetMapping("{id}")
