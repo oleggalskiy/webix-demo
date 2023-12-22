@@ -17,9 +17,9 @@ define(function () {
                     ]
                 },
                 {
-                    id: 'markList',
+                    id: 'tableId',
                     view: "datatable",
-                    pager: "markPager",
+                    pager: "tablePager",
                     datafetch: 3,
                     columns: columns,
                     url: url,
@@ -30,7 +30,7 @@ define(function () {
                 },
                 {
                     view: "pager",
-                    id: "markPager",
+                    id: "tablePager",
                     size: 3,
                     group: 3,
                     template: "{common.first()}{common.prev()}{common.pages()}{common.next()}{common.last()}Page {common.page()} from #limit#"

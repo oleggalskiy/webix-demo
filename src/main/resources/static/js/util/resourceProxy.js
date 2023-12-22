@@ -9,10 +9,12 @@ define(function () {
         },
         load: function (view, params) {
             var args = ''
-                args += '?page='+(params ? params.start / view.config.datafetch: 0)
-                args += '&size='+view.config.datafetch
+
+                args += '?page=' + (params ? params.start / view.config.datafetch : 0)
+                args += '&size=' + view.config.datafetch
+
             var url = view.config.url.source
-            return ajax.get(url).then(function (value) {
+            return ajax.get(url+args).then(function (value) {
                 var response = value.json();
                 return {
                     data: response.content,
