@@ -17,7 +17,7 @@ define(function () {
                     ]
                 },
                 {
-                    id: 'tableId',
+                    id: tableId,
                     view: "datatable",
                     pager: "tablePager",
                     datafetch: 3,
