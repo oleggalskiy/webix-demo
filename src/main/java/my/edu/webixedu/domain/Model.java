@@ -2,6 +2,7 @@ package my.edu.webixedu.domain;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.*;
@@ -26,4 +27,9 @@ public class Model implements ComboListItem{
     @JsonIdentityReference(alwaysAsId = true)
     private Mark mark;
 
+    @Override
+    @JsonIgnore
+    public String getRepr() {
+        return String.format("%s %s", mark.getName(), name);
+    }
 }
