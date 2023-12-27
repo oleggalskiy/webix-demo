@@ -3,6 +3,7 @@ package my.edu.webixedu.domain;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.persistence.*;
 import lombok.*;
 import my.edu.webixedu.util.EntityIdResolver;
@@ -26,7 +27,8 @@ public class Car implements ComboListItem {
     private String name;
 
     @ManyToOne
-    @JsonIdentityReference(alwaysAsId = true)
+    @JsonIdentityReference
+    @JsonSerialize(as = ComboListItem.class)
     private Model model;
 
 }
